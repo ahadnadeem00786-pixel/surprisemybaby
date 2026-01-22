@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Petal Toss 💐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      height: 100vh;
+      background: radial-gradient(circle, #0b0006, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      color: #ffb3d9;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .bouquet {
+      font-size: 60px; /* bigger bouquet emoji */
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .petal {
+      position: absolute;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="title">A Digital Bouquet Just For You 💐</h1>
+    <p class="subtitle">Walk through the petals...</p>
+
+    <!-- Big Digital Bouquet in center -->
+    <div class="bouquet">💐</div>
+
+    <!-- Petal container -->
+    <div class="petals"></div>
+
+    <a href="page5.html" class="enter-btn">Next 💕</a>
+  </div>
+
+  <div class="hearts"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // Petal Toss effect
+    const petalsContainer = document.querySelector('.petals');
+
+    function createPetal() {
+      const petal = document.createElement('span');
+      petal.classList.add('petal');
+      const petalsEmojis = ['🌸','🌹','🌺','💮','🌼'];
+      petal.innerHTML = petalsEmojis[Math.floor(Math.random()*petalsEmojis.length)];
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (4 + Math.random()*3) + 's';
+      petalsContainer.appendChild(petal);
+
+      setTimeout(() => { petal.remove(); }, 7000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+
+</body>
+</html>

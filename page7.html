@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Cake 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .cake-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cake {
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .cake span {
+      cursor: pointer;
+    }
+
+    .decorators {
+      margin-bottom: 20px;
+    }
+
+    .decorators button {
+      font-size: 24px;
+      margin: 5px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(145deg, #ff4fa0, #ff2f7d);
+      color: white;
+      box-shadow: 0 0 10px #ff2f92;
+    }
+
+    .action-btns {
+      margin-top: 20px;
+    }
+
+    .action-btns button {
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: none;
+      font-size: 14px;
+      background: linear-gradient(145deg,#ff4fa0,#ff2f7d);
+      color:white;
+      box-shadow:0 0 15px #ff2f92;
+      cursor:pointer;
+    }
+
+    .blown span {
+      opacity: 0.3;
+      transition: 0.6s;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1 class="title">🎂 Your Birthday Cake 🎀</h1>
+  <p class="subtitle">Decorate it & make a wish!</p>
+
+  <div class="cake-container">
+    <div class="cake" id="cake">
+      🎂<br>
+      🕯️🕯️🕯️<br>
+      🍫💝🍭
+    </div>
+
+    <div class="decorators">
+      <button onclick="addEmoji('❤️')">❤️</button>
+      <button onclick="addEmoji('🌸')">🌸</button>
+      <button onclick="addEmoji('✨')">✨</button>
+      <button onclick="addEmoji('🍭')">🍭</button>
+      <button onclick="addEmoji('🎀')">🎀</button>
+    </div>
+
+    <div class="action-btns">
+      <button onclick="cutCake()">Cut Cake ✂️</button>
+      <button onclick="blowCandles()">Blow Candles 💨</button>
+      <a href="page8.html" class="enter-btn">Next 🎁</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="hearts"></div>
+<script src="script.js"></script>
+
+<script>
+  const cake = document.getElementById('cake');
+
+  function addEmoji(emoji) {
+    cake.innerHTML += emoji;
+  }
+
+  function cutCake() {
+    alert("You cut the cake! 🎉🍰");
+    cake.innerHTML = cake.innerHTML.replace(/🍫💝🍭/g, '🍫💝🍭🍰'); // adds cut piece
+  }
+
+  function blowCandles() {
+    cake.classList.add('blown');
+    alert("Candles blown! 💨 Make a wish!");
+  }
+</script>
+
+</body>
+</html>

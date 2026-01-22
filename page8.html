@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Hug 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: radial-gradient(circle, #0b0006, #000);
+      color: #ffb3d9;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hug-btn {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(145deg,#ff4fa0,#ff2f7d);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px #ff2f92;
+      margin: 30px 0;
+      transition: transform 0.2s;
+    }
+
+    .hug-btn:hover {
+      transform: scale(1.1);
+    }
+
+    #finalMsg {
+      font-size: 22px;
+      margin-top: 25px;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 24px;
+      pointer-events: none;
+      animation: rain 3s linear forwards;
+    }
+
+    @keyframes rain {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .restart-btn {
+      margin-top: 20px;
+      padding: 14px 24px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(145deg,#ff4fa0,#ff2f7d);
+      color:white;
+      box-shadow:0 0 15px #ff2f92;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 class="title">💖 Final Surprise 💖</h1>
+<p class="subtitle">Click for a virtual hug!</p>
+
+<button class="hug-btn" id="hugBtn">Hug Me 🫂</button>
+
+<div id="finalMsg">🎉 Happy Birthday, My Love! 💋🎀💗🫂🎂</div>
+
+<!-- Restart button -->
+<button class="restart-btn" onclick="restart()">Start All Over Again 🔄</button>
+
+<div class="hearts"></div>
+
+<script src="script.js"></script>
+
+<script>
+  const hugBtn = document.getElementById('hugBtn');
+  const finalMsg = document.getElementById('finalMsg');
+  const emojis = ["💋","🎀","💗","🫂"];
+
+  function createEmoji() {
+    const e = document.createElement("div");
+    e.className = "emoji";
+    e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.fontSize = 20 + Math.random() * 20 + "px";
+    document.body.appendChild(e);
+
+    setTimeout(() => e.remove(), 3000);
+  }
+
+  hugBtn.addEventListener('click', () => {
+    // Emoji rain
+    for(let i=0;i<20;i++){
+      setTimeout(createEmoji, i*100);
+    }
+    // Show final message
+    finalMsg.style.opacity = 1;
+  });
+
+  function restart() {
+    window.location.href = "index.html"; // starts the website from the first page
+  }
+</script>
+
+</body>
+</html>

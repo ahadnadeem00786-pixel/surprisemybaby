@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password to My Heart 🔐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .vault {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #ff5fa2;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #ff2f92;
+      max-width: 340px;
+      margin: auto;
+    }
+
+    .vault-title {
+      color: #ff8fc7;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .hint {
+      font-family: 'Pacifico', cursive;
+      color: #ffb3d9;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 20px;
+      border: none;
+      text-align: center;
+      font-size: 14px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      margin-top: 10px;
+      color: #ff6fae;
+      font-size: 12px;
+      height: 16px;
+    }
+
+    .opened {
+      animation: openVault 1.5s forwards;
+    }
+
+    @keyframes openVault {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.2); opacity: 0; }
+    }
+
+    .secret {
+      display: none;
+      text-align: center;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .certificate {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #ff8fc7;
+      border-radius: 15px;
+      font-family: 'Pacifico', cursive;
+      color: #ffb3d9;
+      background: rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- VAULT -->
+  <div class="vault" id="vaultBox">
+    <h1 class="title">🔐 Password to My Heart</h1>
+    <p class="hint">Hint: A date that means *us* 💕</p>
+
+    <input type="text" id="password" placeholder="Enter password">
+    <button class="enter-btn" onclick="checkPassword()">Unlock ❤️</button>
+
+    <div class="status" id="statusText"></div>
+  </div>
+
+  <!-- SECRET CONTENT -->
+  <div class="secret" id="secretContent">
+    <h1 class="title">Vault Opened 💖</h1>
+
+    <p class="subtitle">
+      Happy Birthday my love 🎂<br>
+      You are my safest place, my forever, my heart.
+    </p>
+
+    <div class="certificate">
+      📜 Certificate of Ownership 📜<br><br>
+      This certifies that my heart,<br>
+      thoughts, smiles, and future<br>
+      belong to <b>YOU</b> 💕<br><br>
+      Valid: Forever ♾️
+    </div>
+
+    <a href="page4.html" class="enter-btn" style="margin-top:30px;">Continue 💞</a>
+  </div>
+
+</div>
+
+<div class="hearts"></div>
+
+<script src="script.js"></script>
+
+<script>
+  function checkPassword() {
+    const input = document.getElementById("password").value.toLowerCase().trim();
+    const status = document.getElementById("statusText");
+    const vault = document.getElementById("vaultBox");
+    const secret = document.getElementById("secretContent");
+
+    if (input === "20 march") {
+      status.textContent = "ACCESS GRANTED 💖";
+      vault.classList.add("opened");
+
+      setTimeout(() => {
+        vault.style.display = "none";
+        secret.style.display = "block";
+      }, 1500);
+    } else {
+      status.textContent = "ACCESS DENIED ❌";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Receipt 🧾</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #0b0006;
+      color: #ffb3d9;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .receipt {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 360px;
+      box-shadow: 0 0 20px #ff2f92;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff8fc7;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+    }
+
+    .total {
+      margin-top: 15px;
+      font-weight: bold;
+      border-top: 1px dashed #ff8fc7;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 14px;
+      color: #ffb3d9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="receipt">
+  <h1>Love Receipt 🧾</h1>
+
+  <div class="item"><span>1,000x Hugs</span><span>$0.00</span></div>
+  <div class="item"><span>Unlimited Support</span><span>$0.00</span></div>
+  <div class="item"><span>Lifetime of Loyalty</span><span>$0.00</span></div>
+
+  <div class="total"><span>Total:</span><span>Priceless 💖</span></div>
+
+  <div class="footer">
+    Thank you for shopping at Ahad's Heart.<br>
+    Come back forever.
+  </div>
+</div>
+
+<a href="page6.html" class="enter-btn" style="margin-top:30px;">Next 💕</a>
+
+<div class="hearts"></div>
+<script src="script.js"></script>
+
+</body>
+</html>
